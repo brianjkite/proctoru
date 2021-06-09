@@ -36,22 +36,22 @@ ActiveRecord::Schema.define(version: 2021_06_09_161953) do
   end
 
   create_table "exam_windows", force: :cascade do |t|
+    t.integer "exam_id"
     t.date "start_time_window", null: false
     t.date "end_time_window", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["exam_id"], name: "index_exam_windows_on_exam_id"
   end
 
   create_table "exams", force: :cascade do |t|
     t.string "title", null: false
     t.json "questions"
-    t.integer "exam_window_id"
     t.integer "college_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index "\"exam_window\"", name: "index_exams_on_exam_window"
     t.index ["college_id"], name: "index_exams_on_college_id"
-    t.index ["exam_window_id"], name: "index_exams_on_exam_window_id"
   end
 
   create_table "exams_users", id: false, force: :cascade do |t|
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 2021_06_09_161953) do
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "email", null: false
     t.string "phone_number", limit: 10, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

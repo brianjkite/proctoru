@@ -16,10 +16,11 @@ class API < Grape::API
     post do
       safe_params = BackwordsCompatParams.new(declared(params, include_missing: false)).to_hash(symbolize_keys: true)
       exam, errors = ExamService.new(safe_params).validate
-      if exam.save
-        
+      if exam.present?
+        present exam, with: API::Entities::Exam
       else
-
+        status 400
+        errors
       end
     end
   end

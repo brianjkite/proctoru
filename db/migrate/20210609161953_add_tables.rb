@@ -15,7 +15,6 @@ class AddTables < ActiveRecord::Migration[6.1]
     create_table :exams do |t|
       t.string :title, null: false
       t.json :questions
-      t.belongs_to :exam_window
       t.belongs_to :college
       t.timestamps
     end
@@ -28,6 +27,7 @@ class AddTables < ActiveRecord::Migration[6.1]
     end
 
     create_table :exam_windows do |t|
+      t.belongs_to :exam
       t.date :start_time_window, null: false
       t.date :end_time_window, null: false
       t.timestamps

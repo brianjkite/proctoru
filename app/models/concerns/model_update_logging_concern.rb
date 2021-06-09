@@ -64,7 +64,7 @@ module ModelUpdateLoggingConcern
     log_many_to_many_object_update(self, changes)
     log_nested_object(self, changes)
     
-    Audit.log_event("Updated #{to_s}: #{changes.join(', ')} #{self.respond_to?(:additional_audit_information) ? self.additional_audit_information : nil}".strip, self.class.to_s.titleize, patient_identification, User.current)
+    Audit.log_event("Updated #{to_s}: #{changes.join(', ')} #{self.respond_to?(:additional_audit_information) ? self.additional_audit_information : nil}".strip, self.class.to_s.titleize)
   end
   
   def log_nested_object(object, changes)
