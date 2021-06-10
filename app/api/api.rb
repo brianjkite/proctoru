@@ -1,4 +1,5 @@
 class API < Grape::API
+  include Grape::Extensions::Hashie::Mash::ParamBuilder
   version 'v1', using: :header, vendor: 'proctoru'
   format :json
   prefix :api

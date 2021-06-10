@@ -1,0 +1,7 @@
+.byebug_history
+/.vscode/settings.json
+/tmp/*
+log
+.DS_Store
+.rspec
+*.sqlite3
