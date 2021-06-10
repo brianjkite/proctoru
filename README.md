@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Create DB - bin/rails db:setup
 
-Things you may want to cover:
+* Seed - bin/rails db:seed
 
-* Ruby version
+* Test - bundle exec rspec spec/*
 
-* System dependencies
+* API route = '/api/exams'
 
-* Configuration
+* Api file = app/api/api.rb
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
